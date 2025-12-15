@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./index.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/rimiJI/nodejs-rest-api/issues"
   },
-  "homepage": "https://github.com/rimiJI/nodejs-rest-api#readme"
+  "homepage": "https://github.com/rimiJI/nodejs-rest-api#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.0.1",
+    "nodemon": "^3.1.11"
+  }
 }
