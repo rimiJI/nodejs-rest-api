@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "범위 - 프론트는 안 만들고 Postman으로 API 테스트까지",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "module",
+    "type": "git",
     "url": "git+https://github.com/rimiJI/nodejs-rest-api.git"
   },
   "keywords": [],
