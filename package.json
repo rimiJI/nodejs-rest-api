@@ -1,0 +1,20 @@
+{
+  "name": "nodejs-rest-api",
+  "version": "1.0.0",
+  "description": "범위 - 프론트는 안 만들고 Postman으로 API 테스트까지",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "module",
+    "url": "git+https://github.com/rimiJI/nodejs-rest-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rimiJI/nodejs-rest-api/issues"
+  },
+  "homepage": "https://github.com/rimiJI/nodejs-rest-api#readme"
+}
