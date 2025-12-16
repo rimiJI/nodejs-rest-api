@@ -7,10 +7,10 @@ const User = mongoose.model("User", userSchema); //기존사용자
 export const addNewUser = async (req, res) => {
   //async 비동기 함수!
   try {
-    let newUser = new User(req, body); //postmand의 body에서 가져온다.
-    let savedUser = await newUser.save();
-    res.json(savedUser);
+    let newUser = new User(req.body); //postmand의 body에서 가져온다. 💥Express에서 POST 데이터는 항상 req.body
+    let savedUser = await newUser.save(); //계정저장
+    res.json(savedUser); //서버에서 JSON 응답 전송 → 프론트엔드는 이 JSON을 받아서 화면에 사용 가능 //(서버에서 “프런트를 채우는” 건 아님, 재료만 보내는 것)
   } catch (err) {
-    res.status(400).send(err);
+    res.status(400).json({ error: err.message });
   }
 };
