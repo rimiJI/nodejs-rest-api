@@ -1,3 +1,4 @@
+import { addNewUser, getUsers } from "./controller.js";
 export default function routes(app) {
   app
     .route("/user")
@@ -7,9 +8,9 @@ export default function routes(app) {
         console.log("Request type:", req.method); //이건 아래 log에서
         next();
       },
-      (req, res, next) => res.send("GET request Successful") //이건 postman에서 확인
+      getUsers //이건 postman에서 확인
     )
-    .post((req, res) => res.send("POST request")); //이건 postman에서 확인
+    .post(addNewUser); //이건 postman에서 확인
 
   app
     .route("/user/:userId")
