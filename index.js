@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config(); //nodejs가 자동으로  env읽게 하는 라이브러리
+
 import express from "express"; //express 라이브러리 임포트
 import routes from "./src/routes.js";
 import mongoose from "mongoose";
@@ -7,7 +10,7 @@ const port = 3000;
 
 //mongoose는 DB 연결하는데 도움
 mongoose;
-mongoose.connect("mongodb://127.0.0.1:27017/userDB"); //로컬경로임 -> 예제와 다르게 입력해야함. 그래야 최신버전에서는 에러안남
+mongoose.connect(process.env.MONGO_URI); //Atlas로 변경 //로컬경로임 -> 예제와 다르게 입력해야함. 그래야 최신버전에서는 에러안남
 
 //REST API 통해 DB로 전송
 app.use(express.urlencoded({ extended: true }));
