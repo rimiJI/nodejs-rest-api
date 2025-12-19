@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-dotenv.config(); //nodejs가 자동으로  env읽게 하는 라이브러리
+dotenv.config(); //nodejs가 자동으로  env읽게 하는 라이브러리 (최상단 위치해야함)
 
 import express from "express"; //express 라이브러리 임포트
 import routes from "./src/routes.js";
@@ -10,6 +10,7 @@ const port = 3000;
 
 //mongoose는 DB 연결하는데 도움
 mongoose;
+console.log("MONGO_URI:", process.env.MONGO_URI); //dotenv로 nodejs가 자동으로 .env읽었는지 확인용 . npm start 하면 보임
 mongoose.connect(process.env.MONGO_URI); //Atlas로 변경 //로컬경로임 -> 예제와 다르게 입력해야함. 그래야 최신버전에서는 에러안남
 
 //REST API 통해 DB로 전송
