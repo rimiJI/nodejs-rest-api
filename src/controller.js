@@ -15,11 +15,14 @@ export const addNewUser = async (req, res) => {
   }
 };
 
+//전체 유저 가져오기
 export const getUsers = async (req, res) => {
   try {
-    const users = await User.find({});
+    const users = await User.find({}); //모든 유저 찾기 User.find({}), MongoDB에 "user 컬렉션좀줘" 요청
     res.json(users);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
+
+//특정 유저 가져오기
