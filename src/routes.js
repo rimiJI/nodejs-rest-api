@@ -1,5 +1,6 @@
 import {
   addNewUser,
+  deleteUser,
   getUsers,
   getUserWithId,
   updateUser,
@@ -21,5 +22,5 @@ export default function routes(app) {
     .route("/user/:userId") //:userId는 동적경로. 또는 Parameter라고해서.. controller.js에서 .params 적은것
     .get(getUserWithId)
     .put(updateUser) //.put((req, res) => res.send("PUT Request"))//임시 //이건 postman에서 확인
-    .delete((req, res) => res.send("DELET Request")); //임시///이건 postman에서 확인
+    .delete(deleteUser); //.delete((req, res) => res.send("DELET Request")); //임시///이건 postman에서 확인
 }

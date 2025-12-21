@@ -28,7 +28,7 @@ export const getUsers = async (req, res) => {
 //특정 유저 가져오기
 export const getUserWithId = async (req, res) => {
   try {
-    const user = await User.findById(req.params.userId);
+    const user = await User.findById(req.params.userId); //참고로 findById는 mongoDB메서드
     res.json(user);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -44,6 +44,16 @@ export const updateUser = async (req, res) => {
       { new: true } //응답보낼때마다 업데잍 된 사용자정보 함께 보낸다.
     );
     res.json(updatedUser);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+//삭제! 마지막 엔드포인트!
+export const deleteUser = async (req, res) => {
+  try {
+    await User.deleteOne({ _id: req.params.userId }); //그냥 삭제했기때문에 이번엔 변수저장❌
+    res.json({ message: "Successfully delete the user" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
