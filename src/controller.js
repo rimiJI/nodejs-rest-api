@@ -34,3 +34,17 @@ export const getUserWithId = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+//유저정보 변경하기
+export const updateUser = async (req, res) => {
+  try {
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: req.params.userId }, //이것을바꿀것
+      req.body, //업데이트하려는내용
+      { new: true } //응답보낼때마다 업데잍 된 사용자정보 함께 보낸다.
+    );
+    res.json(updatedUser);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
