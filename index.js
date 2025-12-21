@@ -12,7 +12,7 @@ const port = 3000;
 mongoose;
 // console.log("MONGO_URI:", process.env.MONGO_URI); //보안상 꺼둠//dotenv로 nodejs가 자동으로 .env읽었는지 확인용 . npm start 하면 보임
 mongoose
-  .connect("mongodb://127.0.0.1:27017/userDB") //취소 자꾸 에러뜸//Atlas로 변경 //로컬경로임 -> 예제와 다르게 입력해야함. 그래야 최신버전에서는 에러안남
+  .connect("mongodb://127.0.0.1:27017/userDB") //변경 취소 자꾸 에러뜸//Atlas로 변경 //로컬경로임 -> 예제와 다르게 입력해야함. 그래야 최신버전에서는 에러안남
   .then(() => {
     console.log("MongoDB (local) connected");
     app.listen(port, () => {
