@@ -30,7 +30,7 @@ app.use(express.json());
 //index.js에서 routes 연결
 routes(app);
 
-//The first endpoint / route
+//The first endpoint / route ⭐메인 엔드포인트
 //최소 하나의 엔드포인트 필요 => 이 포트에서 실행중입니다.
 app.get("/", (req, res) => {
   res.send(`Node & Express server is running on port ${port}`);
