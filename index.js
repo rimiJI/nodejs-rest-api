@@ -10,8 +10,18 @@ const port = 3000;
 
 //mongoose는 DB 연결하는데 도움
 mongoose;
-console.log("MONGO_URI:", process.env.MONGO_URI); //dotenv로 nodejs가 자동으로 .env읽었는지 확인용 . npm start 하면 보임
-mongoose.connect(process.env.MONGO_URI); //Atlas로 변경 //로컬경로임 -> 예제와 다르게 입력해야함. 그래야 최신버전에서는 에러안남
+// console.log("MONGO_URI:", process.env.MONGO_URI); //보안상 꺼둠//dotenv로 nodejs가 자동으로 .env읽었는지 확인용 . npm start 하면 보임
+mongoose
+  .connect("mongodb://127.0.0.1:27017/userDB") //취소 자꾸 에러뜸//Atlas로 변경 //로컬경로임 -> 예제와 다르게 입력해야함. 그래야 최신버전에서는 에러안남
+  .then(() => {
+    console.log("MongoDB (local) connected");
+    app.listen(port, () => {
+      console.log(`server running on port ${port}`);
+    });
+  })
+  .catch((err) => {
+    console.error("MongoDB local connection failed:", err.message);
+  });
 
 //REST API 통해 DB로 전송
 app.use(express.urlencoded({ extended: true }));

@@ -26,3 +26,11 @@ export const getUsers = async (req, res) => {
 };
 
 //특정 유저 가져오기
+export const getUserWithId = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userId);
+    res.json(user);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
